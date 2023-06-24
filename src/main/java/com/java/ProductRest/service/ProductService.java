@@ -3,6 +3,7 @@ package com.java.ProductRest.service;
 import com.java.ProductRest.dto.ProductRequestDTO;
 import com.java.ProductRest.dto.ProductResponseDTO;
 import com.java.ProductRest.entity.Product;
+import com.java.ProductRest.exception.ProductNotFoundException;
 import com.java.ProductRest.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
