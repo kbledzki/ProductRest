@@ -8,7 +8,6 @@ import com.java.ProductRest.exception.ProductServiceBusinessException;
 import com.java.ProductRest.repository.ProductRepository;
 import com.java.ProductRest.util.ValueMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -41,7 +40,7 @@ public class ProductService {
         log.info("ProductService:createNewProduct execution ended.");
         return productResponseDTO;
     }
-    @Cacheable(value = "product")
+
     public List<ProductResponseDTO> getProducts() throws ProductServiceBusinessException {
         List<ProductResponseDTO> productResponseDTOS = null;
         try {
@@ -63,7 +62,6 @@ public class ProductService {
         return productResponseDTOS;
     }
 
-    @Cacheable(value = "product")
     public ProductResponseDTO getProductById(long productId) {
         ProductResponseDTO productResponseDTO;
         try {
@@ -79,7 +77,7 @@ public class ProductService {
         log.info("ProductService:getProductById execution ended.");
         return productResponseDTO;
     }
-    @Cacheable(value = "product")
+
     public Map<String, List<ProductResponseDTO>> getProductsByTypes() {
         try {
             log.info("ProductService:getProductsByTypes execution started.");

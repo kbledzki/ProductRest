@@ -18,7 +18,8 @@ public class ValueMapper {
         product.setSupplierCode(productRequestDTO.getSupplierCode());
         return product;
     }
-    public static ProductResponseDTO convertToDTO(Product product){
+
+    public static ProductResponseDTO convertToDTO(Product product) {
         ProductResponseDTO productResponseDTO = new ProductResponseDTO();
         productResponseDTO.setId(product.getId());
         productResponseDTO.setName(product.getName());
@@ -31,8 +32,7 @@ public class ValueMapper {
         return productResponseDTO;
     }
 
-
-    public static String jsonAsString(Object obj){
+    public static String jsonAsString(Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);
         } catch (JsonProcessingException e) {

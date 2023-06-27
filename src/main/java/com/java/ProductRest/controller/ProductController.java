@@ -6,7 +6,6 @@ import com.java.ProductRest.dto.ProductResponseDTO;
 import com.java.ProductRest.service.ProductService;
 import com.java.ProductRest.util.ValueMapper;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +15,14 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/products")
-@AllArgsConstructor
 @Slf4j
 public class ProductController {
     public static final String SUCCESS = "Success";
-    private ProductService productService;
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
     @PostMapping
     public ResponseEntity<APIResponse> createNewProduct(@RequestBody @Valid ProductRequestDTO productRequestDTO) {
         log.info("ProductController::createNewProduct request body {}", ValueMapper.jsonAsString(productRequestDTO));
